@@ -25,7 +25,7 @@ spec:
               containerPort: 9898
           env:
             - name: PODINFO_UI_MESSAGE
-              value: "Hello from GitOps MVP"
+              value: "Hello from GitOps! I am Testing ArgoCD Sync"
           readinessProbe:
             httpGet:
               path: /readyz

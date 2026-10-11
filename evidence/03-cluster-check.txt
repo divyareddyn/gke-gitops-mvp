@@ -1,0 +1,8 @@
+Sun Oct 11 09:46:44 PM UTC 2026
+NAME                                         STATUS   ROLES    AGE     VERSION
+gke-gke-gitops-mvp-main-pool-c1f29367-9wg7   Ready    <none>   8m      v1.35.8-gke.1225000
+gke-gke-gitops-mvp-main-pool-c1f29367-c83s   Ready    <none>   7m58s   v1.35.8-gke.1225000
+NAME                                         CPU(cores)   CPU(%)   MEMORY(bytes)   MEMORY(%)   
+gke-gke-gitops-mvp-main-pool-c1f29367-9wg7   145m         15%      1776Mi          63%         
+gke-gke-gitops-mvp-main-pool-c1f29367-c83s   113m         12%      1083Mi          38%         
+ADVANCED_DATAPATH

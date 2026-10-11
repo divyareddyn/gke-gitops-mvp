@@ -1,0 +1,10 @@
++ date -u
+Sun Oct 11 11:28:20 PM UTC 2026
++ kubectl exec -n podinfo deploy/podinfo -- id
+uid=10001 gid=0(root) groups=0(root)
++ kubectl exec -n podinfo deploy/podinfo -- ls /var/run/secrets/kubernetes.io/serviceaccount
+ls: /var/run/secrets/kubernetes.io/serviceaccount: No such file or directory
+command terminated with exit code 1
++ kubectl get pod -n podinfo -l app=podinfo -o 'jsonpath={.items[0].spec.securityContext}{"\n"}{.items[0].spec.containers[0].securityContext}{"\n"}'
+{"runAsNonRoot":true,"runAsUser":10001}
+{"allowPrivilegeEscalation":false,"capabilities":{"drop":["ALL"]}}

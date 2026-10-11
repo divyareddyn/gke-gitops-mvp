@@ -1,0 +1,15 @@
++ date -u
+Sun Oct 11 11:24:15 PM UTC 2026
++ kubectl run test-allowed -n podinfo --rm -i --restart=Never --image=curlimages/curl --labels=access=allowed -- sh -c 'curl -s -m 5 http://podinfo/healthz || echo "BLOCKED (curl exit code $?)"'
+All commands and output from this session will be recorded in container logs, including credentials and sensitive information passed through the command prompt.
+If you don't see a command prompt, try pressing enter.
+{
+  "status": "OK"
+}pod "test-allowed" deleted from podinfo namespace
++ date -u
+Sun Oct 11 11:24:19 PM UTC 2026
++ kubectl run test-denied -n podinfo --rm -i --restart=Never --image=curlimages/curl -- sh -c 'curl -s -m 5 http://podinfo/healthz || echo "BLOCKED (curl exit code $?)"'
+All commands and output from this session will be recorded in container logs, including credentials and sensitive information passed through the command prompt.
+If you don't see a command prompt, try pressing enter.
+BLOCKED (curl exit code 28)
+pod "test-denied" deleted from podinfo namespace

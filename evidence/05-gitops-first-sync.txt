@@ -1,0 +1,21 @@
+Sun Oct 11 10:41:16 PM UTC 2026
+NAME                                               READY   STATUS    RESTARTS   AGE
+argocd-application-controller-0                    1/1     Running   0          4m1s
+argocd-applicationset-controller-b8588c4f9-nhnx6   1/1     Running   0          4m1s
+argocd-redis-5459dccd57-5dchn                      1/1     Running   0          4m1s
+argocd-repo-server-749fdf4f47-fbkbf                1/1     Running   0          4m1s
+argocd-server-7fd4c49b99-zz52d                     1/1     Running   0          4m1s
+NAME      SYNC STATUS   HEALTH STATUS
+podinfo   Synced        Healthy
+NAME                      READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/podinfo   2/2     2            2           3m32s
+
+NAME                           READY   STATUS    RESTARTS   AGE
+pod/podinfo-7bc849f6dc-8jknr   1/1     Running   0          3m31s
+pod/podinfo-7bc849f6dc-b95n9   1/1     Running   0          3m16s
+
+NAME              TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)   AGE
+service/podinfo   ClusterIP   10.30.8.105   <none>        80/TCP    3m32s
+
+NAME                                          REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/podinfo   Deployment/podinfo   cpu: 0%/50%   2         5         2          3m32s

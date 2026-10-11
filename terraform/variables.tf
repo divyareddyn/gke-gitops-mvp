@@ -32,3 +32,20 @@ variable "node_count" {
   type        = number
   default     = 2
 }
+variable "git_repo_url" {
+  description = "Git repo that Argo CD watches"
+  type        = string
+  default     = "https://github.com/divyareddyn/gke-gitops-mvp.git"
+}
+
+variable "argocd_chart_version" {
+  description = "Pinned argo-cd Helm chart version"
+  type        = string
+  default     = "10.10.2"
+}
+
+variable "argocd_apps_chart_version" {
+  description = "Pinned argocd-apps Helm chart version"
+  type        = string
+  default     = "2.0.6"
+}

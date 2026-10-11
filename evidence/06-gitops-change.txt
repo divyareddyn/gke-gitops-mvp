@@ -1,0 +1,45 @@
+Sun Oct 11 10:47:12 PM UTC 2026
+Pushed commit: 5df27fbb57700198afeec436c75b143b42c789d0
+Synced 363123ab1196b5ca19ba236ddf88be30b286c9d3
+NAME                       READY   STATUS    RESTARTS   AGE
+podinfo-7bc849f6dc-8jknr   1/1     Running   0          9m26s
+podinfo-7bc849f6dc-b95n9   1/1     Running   0          9m11s
+{
+  "hostname": "podinfo-7bc849f6dc-b95n9",
+  "version": "6.15.0",
+  "revision": "dd507173b7b75b2312a36cabe0de5f09c1ce69c8",
+  "color": "#34577c",
+  "logo": "https://raw.githubusercontent.com/stefanprodan/podinfo/gh-pages/cuddle_clap.gif",
+  "message": "Hello from GitOps MVP",
+  "goos": "linux",
+  "goarch": "amd64",
+  "runtime": "go1.27.0",
+  "num_goroutine": "6",
+  "num_cpu": "2"
+}pod "curl" deleted from podinfo namespace
+{
+  "hostname": "podinfo-7bc849f6dc-8jknr",
+  "version": "6.15.0",
+  "revision": "dd507173b7b75b2312a36cabe0de5f09c1ce69c8",
+  "color": "#34577c",
+  "logo": "https://raw.githubusercontent.com/stefanprodan/podinfo/gh-pages/cuddle_clap.gif",
+  "message": "Hello from GitOps MVP",
+  "goos": "linux",
+  "goarch": "amd64",
+  "runtime": "go1.27.0",
+  "num_goroutine": "6",
+  "num_cpu": "2"
+}pod "curl" deleted from podinfo namespace
+{
+  "hostname": "podinfo-577968d8fc-rghv9",
+  "version": "6.15.0",
+  "revision": "dd507173b7b75b2312a36cabe0de5f09c1ce69c8",
+  "color": "#34577c",
+  "logo": "https://raw.githubusercontent.com/stefanprodan/podinfo/gh-pages/cuddle_clap.gif",
+  "message": "Hello from GitOps! I am Testing ArgoCD Sync",
+  "goos": "linux",
+  "goarch": "amd64",
+  "runtime": "go1.27.0",
+  "num_goroutine": "6",
+  "num_cpu": "2"
+}pod "curl" deleted from podinfo namespace

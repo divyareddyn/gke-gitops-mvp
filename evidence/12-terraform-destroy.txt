@@ -1,0 +1,894 @@
+Mon Oct 12 04:10:20 AM UTC 2026
+[0m[1mdata.google_client_config.default: Reading...[0m[0m
+[0m[1mgoogle_service_account.nodes: Refreshing state... [id=projects/gke-gitops-mvp/serviceAccounts/gke-gitops-mvp-nodes@gke-gitops-mvp.iam.gserviceaccount.com][0m
+[0m[1mgoogle_compute_network.vpc: Refreshing state... [id=projects/gke-gitops-mvp/global/networks/gke-gitops-mvp-vpc][0m
+[0m[1mdata.google_client_config.default: Read complete after 0s [id=projects/gke-gitops-mvp/regions/us-central1/zones/][0m
+[0m[1mgoogle_project_iam_member.nodes: Refreshing state... [id=gke-gitops-mvp/roles/container.defaultNodeServiceAccount/serviceAccount:gke-gitops-mvp-nodes@gke-gitops-mvp.iam.gserviceaccount.com][0m
+[0m[1mgoogle_compute_subnetwork.subnet: Refreshing state... [id=projects/gke-gitops-mvp/regions/us-central1/subnetworks/gke-gitops-mvp-subnet][0m
+[0m[1mgoogle_container_cluster.gke: Refreshing state... [id=projects/gke-gitops-mvp/locations/us-central1-a/clusters/gke-gitops-mvp][0m
+[0m[1mgoogle_container_node_pool.main: Refreshing state... [id=projects/gke-gitops-mvp/locations/us-central1-a/clusters/gke-gitops-mvp/nodePools/main-pool][0m
+[0m[1mhelm_release.argocd: Refreshing state... [id=argocd][0m
+[0m[1mhelm_release.podinfo_app: Refreshing state... [id=podinfo-app][0m
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  [31m-[0m destroy[0m
+
+Terraform will perform the following actions:
+
+[1m  # google_compute_network.vpc[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "google_compute_network" "vpc" {
+      [31m-[0m[0m auto_create_subnetworks                   = false [90m-> null[0m[0m
+      [31m-[0m[0m bgp_always_compare_med                    = false [90m-> null[0m[0m
+      [31m-[0m[0m bgp_best_path_selection_mode              = "LEGACY" [90m-> null[0m[0m
+      [31m-[0m[0m delete_bgp_always_compare_med             = false [90m-> null[0m[0m
+      [31m-[0m[0m delete_default_routes_on_create           = false [90m-> null[0m[0m
+      [31m-[0m[0m deletion_policy                           = "DELETE" [90m-> null[0m[0m
+      [31m-[0m[0m enable_ula_internal_ipv6                  = false [90m-> null[0m[0m
+      [31m-[0m[0m id                                        = "projects/gke-gitops-mvp/global/networks/gke-gitops-mvp-vpc" [90m-> null[0m[0m
+      [31m-[0m[0m mtu                                       = 0 [90m-> null[0m[0m
+      [31m-[0m[0m name                                      = "gke-gitops-mvp-vpc" [90m-> null[0m[0m
+      [31m-[0m[0m network_firewall_policy_enforcement_order = "AFTER_CLASSIC_FIREWALL" [90m-> null[0m[0m
+      [31m-[0m[0m network_id                                = "3021983243540251058" [90m-> null[0m[0m
+      [31m-[0m[0m numeric_id                                = "3021983243540251058" [90m-> null[0m[0m
+      [31m-[0m[0m project                                   = "gke-gitops-mvp" [90m-> null[0m[0m
+      [31m-[0m[0m routing_mode                              = "REGIONAL" [90m-> null[0m[0m
+      [31m-[0m[0m self_link                                 = "https://www.googleapis.com/compute/v1/projects/gke-gitops-mvp/global/networks/gke-gitops-mvp-vpc" [90m-> null[0m[0m
+        [90m# (5 unchanged attributes hidden)[0m[0m
+    }
+
+[1m  # google_compute_subnetwork.subnet[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "google_compute_subnetwork" "subnet" {
+      [31m-[0m[0m allow_subnet_cidr_routes_overlap = false [90m-> null[0m[0m
+      [31m-[0m[0m creation_timestamp               = "2026-10-11T14:28:19.833-07:00" [90m-> null[0m[0m
+      [31m-[0m[0m deletion_policy                  = "DELETE" [90m-> null[0m[0m
+      [31m-[0m[0m gateway_address                  = "10.10.0.1" [90m-> null[0m[0m
+      [31m-[0m[0m id                               = "projects/gke-gitops-mvp/regions/us-central1/subnetworks/gke-gitops-mvp-subnet" [90m-> null[0m[0m
+      [31m-[0m[0m ip_cidr_range                    = "10.10.0.0/24" [90m-> null[0m[0m
+      [31m-[0m[0m name                             = "gke-gitops-mvp-subnet" [90m-> null[0m[0m
+      [31m-[0m[0m network                          = "https://www.googleapis.com/compute/v1/projects/gke-gitops-mvp/global/networks/gke-gitops-mvp-vpc" [90m-> null[0m[0m
+      [31m-[0m[0m private_ip_google_access         = true [90m-> null[0m[0m
+      [31m-[0m[0m private_ipv6_google_access       = "DISABLE_GOOGLE_ACCESS" [90m-> null[0m[0m
+      [31m-[0m[0m project                          = "gke-gitops-mvp" [90m-> null[0m[0m
+      [31m-[0m[0m purpose                          = "PRIVATE" [90m-> null[0m[0m
+      [31m-[0m[0m region                           = "us-central1" [90m-> null[0m[0m
+      [31m-[0m[0m self_link                        = "https://www.googleapis.com/compute/v1/projects/gke-gitops-mvp/regions/us-central1/subnetworks/gke-gitops-mvp-subnet" [90m-> null[0m[0m
+      [31m-[0m[0m stack_type                       = "IPV4_ONLY" [90m-> null[0m[0m
+      [31m-[0m[0m subnetwork_id                    = 421816781345538460 [90m-> null[0m[0m
+        [90m# (11 unchanged attributes hidden)[0m[0m
+
+      [31m-[0m[0m secondary_ip_range {
+          [31m-[0m[0m ip_cidr_range           = "10.20.0.0/16" [90m-> null[0m[0m
+          [31m-[0m[0m range_name              = "pods" [90m-> null[0m[0m
+            [90m# (1 unchanged attribute hidden)[0m[0m
+        }
+      [31m-[0m[0m secondary_ip_range {
+          [31m-[0m[0m ip_cidr_range           = "10.30.0.0/20" [90m-> null[0m[0m
+          [31m-[0m[0m range_name              = "services" [90m-> null[0m[0m
+            [90m# (1 unchanged attribute hidden)[0m[0m
+        }
+    }
+
+[1m  # google_container_cluster.gke[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "google_container_cluster" "gke" {
+      [31m-[0m[0m autopilot_privileged_admission           = [] [90m-> null[0m[0m
+      [31m-[0m[0m cluster_ipv4_cidr                        = "10.20.0.0/16" [90m-> null[0m[0m
+      [31m-[0m[0m datapath_provider                        = "ADVANCED_DATAPATH" [90m-> null[0m[0m
+      [31m-[0m[0m default_max_pods_per_node                = 110 [90m-> null[0m[0m
+      [31m-[0m[0m deletion_policy                          = "DELETE" [90m-> null[0m[0m
+      [31m-[0m[0m deletion_protection                      = false [90m-> null[0m[0m
+      [31m-[0m[0m disable_l4_lb_firewall_reconciliation    = false [90m-> null[0m[0m
+      [31m-[0m[0m effective_labels                         = {
+          [31m-[0m[0m "goog-terraform-provisioned" = "true"
+        } [90m-> null[0m[0m
+      [31m-[0m[0m enable_autopilot                         = false [90m-> null[0m[0m
+      [31m-[0m[0m enable_cilium_clusterwide_network_policy = false [90m-> null[0m[0m
+      [31m-[0m[0m enable_fqdn_network_policy               = false [90m-> null[0m[0m
+      [31m-[0m[0m enable_intranode_visibility              = false [90m-> null[0m[0m
+      [31m-[0m[0m enable_kubernetes_alpha                  = false [90m-> null[0m[0m
+      [31m-[0m[0m enable_l4_ilb_subsetting                 = false [90m-> null[0m[0m
+      [31m-[0m[0m enable_legacy_abac                       = false [90m-> null[0m[0m
+      [31m-[0m[0m enable_multi_networking                  = false [90m-> null[0m[0m
+      [31m-[0m[0m enable_shielded_nodes                    = true [90m-> null[0m[0m
+      [31m-[0m[0m enable_tpu                               = false [90m-> null[0m[0m
+      [31m-[0m[0m endpoint                                 = "104.197.19.114" [90m-> null[0m[0m
+      [31m-[0m[0m id                                       = "projects/gke-gitops-mvp/locations/us-central1-a/clusters/gke-gitops-mvp" [90m-> null[0m[0m
+      [31m-[0m[0m initial_node_count                       = 1 [90m-> null[0m[0m
+      [31m-[0m[0m label_fingerprint                        = "78cdf2f6" [90m-> null[0m[0m
+      [31m-[0m[0m location                                 = "us-central1-a" [90m-> null[0m[0m
+      [31m-[0m[0m logging_service                          = "logging.googleapis.com/kubernetes" [90m-> null[0m[0m
+      [31m-[0m[0m master_version                           = "1.35.8-gke.1225000" [90m-> null[0m[0m
+      [31m-[0m[0m monitoring_service                       = "monitoring.googleapis.com/kubernetes" [90m-> null[0m[0m
+      [31m-[0m[0m name                                     = "gke-gitops-mvp" [90m-> null[0m[0m
+      [31m-[0m[0m network                                  = "projects/gke-gitops-mvp/global/networks/gke-gitops-mvp-vpc" [90m-> null[0m[0m
+      [31m-[0m[0m networking_mode                          = "VPC_NATIVE" [90m-> null[0m[0m
+      [31m-[0m[0m node_locations                           = [] [90m-> null[0m[0m
+      [31m-[0m[0m node_version                             = "1.35.8-gke.1225000" [90m-> null[0m[0m
+      [31m-[0m[0m project                                  = "gke-gitops-mvp" [90m-> null[0m[0m
+      [31m-[0m[0m remove_default_node_pool                 = true [90m-> null[0m[0m
+      [31m-[0m[0m resource_labels                          = {} [90m-> null[0m[0m
+      [31m-[0m[0m self_link                                = "https://container.googleapis.com/v1/projects/gke-gitops-mvp/zones/us-central1-a/clusters/gke-gitops-mvp" [90m-> null[0m[0m
+      [31m-[0m[0m services_ipv4_cidr                       = "10.30.0.0/20" [90m-> null[0m[0m
+      [31m-[0m[0m subnetwork                               = "projects/gke-gitops-mvp/regions/us-central1/subnetworks/gke-gitops-mvp-subnet" [90m-> null[0m[0m
+      [31m-[0m[0m terraform_labels                         = {
+          [31m-[0m[0m "goog-terraform-provisioned" = "true"
+        } [90m-> null[0m[0m
+        [90m# (5 unchanged attributes hidden)[0m[0m
+
+      [31m-[0m[0m addons_config {
+          [31m-[0m[0m dns_cache_config {
+              [31m-[0m[0m enabled = true [90m-> null[0m[0m
+            }
+          [31m-[0m[0m gce_persistent_disk_csi_driver_config {
+              [31m-[0m[0m enabled = true [90m-> null[0m[0m
+            }
+          [31m-[0m[0m network_policy_config {
+              [31m-[0m[0m disabled = true [90m-> null[0m[0m
+            }
+          [31m-[0m[0m node_readiness_config {
+              [31m-[0m[0m enabled = false [90m-> null[0m[0m
+            }
+        }
+
+      [31m-[0m[0m anonymous_authentication_config {
+          [31m-[0m[0m mode = "LIMITED" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m binary_authorization {
+          [31m-[0m[0m enabled         = false [90m-> null[0m[0m
+            [90m# (1 unchanged attribute hidden)[0m[0m
+        }
+
+      [31m-[0m[0m cluster_autoscaling {
+          [31m-[0m[0m auto_provisioning_locations   = [] [90m-> null[0m[0m
+          [31m-[0m[0m autoscaling_profile           = "BALANCED" [90m-> null[0m[0m
+          [31m-[0m[0m default_compute_class_enabled = false [90m-> null[0m[0m
+          [31m-[0m[0m enabled                       = false [90m-> null[0m[0m
+
+          [31m-[0m[0m auto_provisioning_defaults {
+              [31m-[0m[0m disk_size         = 0 [90m-> null[0m[0m
+              [31m-[0m[0m image_type        = "COS_CONTAINERD" [90m-> null[0m[0m
+              [31m-[0m[0m oauth_scopes      = [
+                  [31m-[0m[0m "https://www.googleapis.com/auth/devstorage.read_only",
+                  [31m-[0m[0m "https://www.googleapis.com/auth/logging.write",
+                  [31m-[0m[0m "https://www.googleapis.com/auth/monitoring",
+                  [31m-[0m[0m "https://www.googleapis.com/auth/service.management.readonly",
+                  [31m-[0m[0m "https://www.googleapis.com/auth/servicecontrol",
+                  [31m-[0m[0m "https://www.googleapis.com/auth/trace.append",
+                ] [90m-> null[0m[0m
+              [31m-[0m[0m service_account   = "default" [90m-> null[0m[0m
+                [90m# (3 unchanged attributes hidden)[0m[0m
+
+              [31m-[0m[0m management {
+                  [31m-[0m[0m auto_repair     = true [90m-> null[0m[0m
+                  [31m-[0m[0m auto_upgrade    = true [90m-> null[0m[0m
+                  [31m-[0m[0m upgrade_options = [] [90m-> null[0m[0m
+                }
+            }
+        }
+
+      [31m-[0m[0m control_plane_endpoints_config {
+          [31m-[0m[0m dns_endpoint_config {
+              [31m-[0m[0m allow_external_traffic    = false [90m-> null[0m[0m
+              [31m-[0m[0m enable_k8s_certs_via_dns  = false [90m-> null[0m[0m
+              [31m-[0m[0m enable_k8s_tokens_via_dns = false [90m-> null[0m[0m
+              [31m-[0m[0m endpoint                  = "gke-c46132d13934460f83aba6e5169ee69e762e-582305804003.us-central1-a.gke.goog" [90m-> null[0m[0m
+            }
+          [31m-[0m[0m ip_endpoints_config {
+              [31m-[0m[0m enabled = true [90m-> null[0m[0m
+            }
+        }
+
+      [31m-[0m[0m database_encryption {
+          [31m-[0m[0m state    = "DECRYPTED" [90m-> null[0m[0m
+            [90m# (1 unchanged attribute hidden)[0m[0m
+        }
+
+      [31m-[0m[0m default_snat_status {
+          [31m-[0m[0m disabled = false [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m enterprise_config {
+          [31m-[0m[0m cluster_tier = "STANDARD" [90m-> null[0m[0m
+            [90m# (1 unchanged attribute hidden)[0m[0m
+        }
+
+      [31m-[0m[0m ip_allocation_policy {
+          [31m-[0m[0m cluster_ipv4_cidr_block       = "10.20.0.0/16" [90m-> null[0m[0m
+          [31m-[0m[0m cluster_secondary_range_name  = "pods" [90m-> null[0m[0m
+          [31m-[0m[0m services_ipv4_cidr_block      = "10.30.0.0/20" [90m-> null[0m[0m
+          [31m-[0m[0m services_secondary_range_name = "services" [90m-> null[0m[0m
+          [31m-[0m[0m stack_type                    = "IPV4" [90m-> null[0m[0m
+
+          [31m-[0m[0m network_tier_config {
+              [31m-[0m[0m network_tier = "NETWORK_TIER_DEFAULT" [90m-> null[0m[0m
+            }
+
+          [31m-[0m[0m pod_cidr_overprovision_config {
+              [31m-[0m[0m disabled = false [90m-> null[0m[0m
+            }
+        }
+
+      [31m-[0m[0m logging_config {
+          [31m-[0m[0m enable_components = [
+              [31m-[0m[0m "SYSTEM_COMPONENTS",
+              [31m-[0m[0m "WORKLOADS",
+            ] [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m master_auth {
+          [31m-[0m[0m cluster_ca_certificate = "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUVMVENDQXBXZ0F3SUJBZ0lSQUwzR1VxcFBwaXZTVENhWHlxOWRHYzB3RFFZSktvWklodmNOQVFFTEJRQXcKTHpFdE1Dc0dBMVVFQXhNa05qQmxORFUzWWprdE9XTmxNaTAwTVRSaUxXRmtOR010WW1RNVpHWXdObVF6TUdaawpNQ0FYRFRJMk1UQXhNVEl3TWpnME5Gb1lEekl3TlRZeE1EQXpNakV5T0RRMFdqQXZNUzB3S3dZRFZRUURFeVEyCk1HVTBOVGRpT1MwNVkyVXlMVFF4TkdJdFlXUTBZeTFpWkRsa1pqQTJaRE13Wm1Rd2dnR2lNQTBHQ1NxR1NJYjMKRFFFQkFRVUFBNElCandBd2dnR0tBb0lCZ1FDYVFZU05sQTczUWprcVRtbjQxZDQ1aWVWN1NXdVNZMWNWUGQxNwppeWc4NnA4ZVo5amZrcnlXRTN1K1JTQmxjalBNK0xIRk9WRlF6WU9ZeitBY2hId1YxRDJ4M2RnZkxuR1JSMUlPCkIxUGU4ekhXNldFMmtsdkdzNVhYd2VuZFR4R3l6b3E2eWxoQUdaRjdGM25ydUl3WVRDV1JBTDVBbnBBTFJ3VEwKcFdvbU1yQ1RwVEVlUTN3Mm1HYndaOTZvT0dabEEvazNIYTBXWHJIdjZFK2oyc1QrOGZpN0lzTW5UbWpzbUdkRQpyeXdmTkRrZ0pPeEpmdnBzNkhZMlJHck5KOVJSbzBwT2RKdERaZVgvblRvWXV3M1Q0d3BWRWFydFF6REFVajJCClBXQ0pTN0laaEU4ZWhSUXJGZ1NPYzl6dEFWeTJUVUcxaHY3UERDMUJTZjQ2SmZKejZRZ0dRR2xHa0ZNQ1RXc1cKZkpoT0hKN2lVdmRnamg3K3NkWXB0NllVNUREUDJra2Y2YWUzN2M5WnJlWVFiZ0k1cW9ZcWNqODI4SUp3L2FGdwpMYWtzempzeEhIV21IZE5XVXFodDBoL2praEVDakp0a1VFU2dkWnBxV05TRUlnUEM3aE1NemxSVFA5SkVwVC9VCkl5enlqS20zS05GRUNadHZZMS9ITVhJMzVvTUNBd0VBQWFOQ01FQXdEZ1lEVlIwUEFRSC9CQVFEQWdJRU1BOEcKQTFVZEV3RUIvd1FGTUFNQkFmOHdIUVlEVlIwT0JCWUVGSytGTHR1UU5pRzNYZ0c4NjYvcmZBdlBrZTZSTUEwRwpDU3FHU0liM0RRRUJDd1VBQTRJQmdRQ01mNjVsb3dyMjRwcG9LZ2tJamZqcXFqSmZDNXhmZVVxYzd0bFR4d01XCkg2YWJWYXEwdzFZYlRjZ2xSTktUZDhEQ3pBWDYzUU1jV05ZL0FDc2hEdzFlbTVOKzU3UStZODJ5Y0dWaFB5NG0KcGtrL1J5cGxVZDBrL2lYZFhoSVU2MEdRWnFiSHNHTXZZdW1lSnNmckdQeThYMSs0bG9xdi9XbzFwWE15aXlGRApuVU9JWGI5NTRhM2xRR3ErTDh2cWNzZCtzdVFnRWZFNEdVbHQ4QnFsdVJqOVR3RFpId1p2Mzd5ZTVlWjc0R2xFCktnQiszUi9EcjcvTjdKY0h2dDVhNTJ6SlB1SzV1TUdtSzU0Z2xFZ1NzRXh3NU5lUHdUTUpPaDVudGxPa1dqS1MKYVB2RnJkSkpReVcrMHJVRm8xcm8weGY5R0FjVGRtSGZDSHhsRjBPS2ZuK2VEM1NVeFl0bXFYaGVxN0FRVC9KcwpLOVVhQWprODI4TnRqTlNtam1RR3Qwck93eXY3akhHblQ4ZllwMHpVV3JiUE9zV1hpbHpDTVhNdGlsWHJtZCtjCkdHV2hkdXFYSHQydmMrM0FDVWN4Z09FVnRIc2ljOUc4aWc2ZFE0eDdGWmJKbWVkRTVXaCtQeTRoOFJoZEhKSGsKbXJERHlZQTZjaXJLektWQk5DQXpsZjA9Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K" [90m-> null[0m[0m
+            [90m# (2 unchanged attributes hidden)[0m[0m
+
+          [31m-[0m[0m client_certificate_config {
+              [31m-[0m[0m issue_client_certificate = false [90m-> null[0m[0m
+            }
+        }
+
+      [31m-[0m[0m monitoring_config {
+          [31m-[0m[0m enable_components = [
+              [31m-[0m[0m "SYSTEM_COMPONENTS",
+              [31m-[0m[0m "STORAGE",
+              [31m-[0m[0m "HPA",
+              [31m-[0m[0m "POD",
+              [31m-[0m[0m "DAEMONSET",
+              [31m-[0m[0m "DEPLOYMENT",
+              [31m-[0m[0m "STATEFULSET",
+              [31m-[0m[0m "CADVISOR",
+              [31m-[0m[0m "KUBELET",
+              [31m-[0m[0m "DCGM",
+              [31m-[0m[0m "JOBSET",
+            ] [90m-> null[0m[0m
+
+          [31m-[0m[0m advanced_datapath_observability_config {
+              [31m-[0m[0m enable_metrics = false [90m-> null[0m[0m
+              [31m-[0m[0m enable_relay   = false [90m-> null[0m[0m
+            }
+
+          [31m-[0m[0m managed_prometheus {
+              [31m-[0m[0m enabled = true [90m-> null[0m[0m
+            }
+        }
+
+      [31m-[0m[0m network_policy {
+          [31m-[0m[0m enabled  = false [90m-> null[0m[0m
+          [31m-[0m[0m provider = "PROVIDER_UNSPECIFIED" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m node_config {
+          [31m-[0m[0m disk_size_gb                = 30 [90m-> null[0m[0m
+          [31m-[0m[0m disk_type                   = "pd-standard" [90m-> null[0m[0m
+          [31m-[0m[0m effective_taints            = [] [90m-> null[0m[0m
+          [31m-[0m[0m enable_confidential_storage = false [90m-> null[0m[0m
+          [31m-[0m[0m flex_start                  = false [90m-> null[0m[0m
+          [31m-[0m[0m image_type                  = "COS_CONTAINERD" [90m-> null[0m[0m
+          [31m-[0m[0m labels                      = {} [90m-> null[0m[0m
+          [31m-[0m[0m local_ssd_count             = 0 [90m-> null[0m[0m
+          [31m-[0m[0m logging_variant             = "DEFAULT" [90m-> null[0m[0m
+          [31m-[0m[0m machine_type                = "e2-medium" [90m-> null[0m[0m
+          [31m-[0m[0m metadata                    = {
+              [31m-[0m[0m "disable-legacy-endpoints" = "true"
+            } [90m-> null[0m[0m
+          [31m-[0m[0m oauth_scopes                = [
+              [31m-[0m[0m "https://www.googleapis.com/auth/cloud-platform",
+            ] [90m-> null[0m[0m
+          [31m-[0m[0m preemptible                 = false [90m-> null[0m[0m
+          [31m-[0m[0m resource_labels             = {
+              [31m-[0m[0m "goog-gke-node-pool-provisioning-model" = "on-demand"
+            } [90m-> null[0m[0m
+          [31m-[0m[0m resource_manager_tags       = {} [90m-> null[0m[0m
+          [31m-[0m[0m service_account             = "gke-gitops-mvp-nodes@gke-gitops-mvp.iam.gserviceaccount.com" [90m-> null[0m[0m
+          [31m-[0m[0m spot                        = false [90m-> null[0m[0m
+          [31m-[0m[0m storage_pools               = [] [90m-> null[0m[0m
+          [31m-[0m[0m tags                        = [] [90m-> null[0m[0m
+            [90m# (6 unchanged attributes hidden)[0m[0m
+
+          [31m-[0m[0m boot_disk {
+              [31m-[0m[0m disk_type              = "pd-standard" [90m-> null[0m[0m
+              [31m-[0m[0m provisioned_iops       = 0 [90m-> null[0m[0m
+              [31m-[0m[0m provisioned_throughput = 0 [90m-> null[0m[0m
+              [31m-[0m[0m size_gb                = 30 [90m-> null[0m[0m
+            }
+
+          [31m-[0m[0m kubelet_config {
+              [31m-[0m[0m allowed_unsafe_sysctls                      = [] [90m-> null[0m[0m
+              [31m-[0m[0m container_log_max_files                     = 0 [90m-> null[0m[0m
+              [31m-[0m[0m cpu_cfs_quota                               = false [90m-> null[0m[0m
+              [31m-[0m[0m eviction_max_pod_grace_period_seconds       = 0 [90m-> null[0m[0m
+              [31m-[0m[0m image_gc_high_threshold_percent             = 0 [90m-> null[0m[0m
+              [31m-[0m[0m image_gc_low_threshold_percent              = 0 [90m-> null[0m[0m
+              [31m-[0m[0m insecure_kubelet_readonly_port_enabled      = "FALSE" [90m-> null[0m[0m
+              [31m-[0m[0m max_parallel_image_pulls                    = 2 [90m-> null[0m[0m
+              [31m-[0m[0m pod_pids_limit                              = 0 [90m-> null[0m[0m
+              [31m-[0m[0m shutdown_grace_period_critical_pods_seconds = 0 [90m-> null[0m[0m
+              [31m-[0m[0m shutdown_grace_period_seconds               = 0 [90m-> null[0m[0m
+              [31m-[0m[0m single_process_oom_kill                     = false [90m-> null[0m[0m
+                [90m# (5 unchanged attributes hidden)[0m[0m
+            }
+
+          [31m-[0m[0m node_image_config {
+              [31m-[0m[0m image         = "gke-1358-gke1225000-cos-125-19216-532-135-c-pre" [90m-> null[0m[0m
+              [31m-[0m[0m image_project = "gke-node-images" [90m-> null[0m[0m
+            }
+
+          [31m-[0m[0m shielded_instance_config {
+              [31m-[0m[0m enable_integrity_monitoring = true [90m-> null[0m[0m
+              [31m-[0m[0m enable_secure_boot          = false [90m-> null[0m[0m
+            }
+
+          [31m-[0m[0m windows_node_config {
+                [90m# (1 unchanged attribute hidden)[0m[0m
+            }
+        }
+
+      [31m-[0m[0m node_creation_config {
+          [31m-[0m[0m node_creation_mode = "VIA_KUBELET" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m node_pool {
+          [31m-[0m[0m ignore_node_count_changes   = false [90m-> null[0m[0m
+          [31m-[0m[0m initial_node_count          = 2 [90m-> null[0m[0m
+          [31m-[0m[0m instance_group_urls         = [
+              [31m-[0m[0m "https://www.googleapis.com/compute/v1/projects/gke-gitops-mvp/zones/us-central1-a/instanceGroupManagers/gke-gke-gitops-mvp-main-pool-c1f29367-grp",
+            ] [90m-> null[0m[0m
+          [31m-[0m[0m managed_instance_group_urls = [
+              [31m-[0m[0m "https://www.googleapis.com/compute/v1/projects/gke-gitops-mvp/zones/us-central1-a/instanceGroups/gke-gke-gitops-mvp-main-pool-c1f29367-grp",
+            ] [90m-> null[0m[0m
+          [31m-[0m[0m max_pods_per_node           = 110 [90m-> null[0m[0m
+          [31m-[0m[0m name                        = "main-pool" [90m-> null[0m[0m
+          [31m-[0m[0m node_count                  = 2 [90m-> null[0m[0m
+          [31m-[0m[0m node_locations              = [
+              [31m-[0m[0m "us-central1-a",
+            ] [90m-> null[0m[0m
+          [31m-[0m[0m version                     = "1.35.8-gke.1225000" [90m-> null[0m[0m
+            [90m# (1 unchanged attribute hidden)[0m[0m
+
+          [31m-[0m[0m management {
+              [31m-[0m[0m auto_repair  = true [90m-> null[0m[0m
+              [31m-[0m[0m auto_upgrade = true [90m-> null[0m[0m
+            }
+
+          [31m-[0m[0m network_config {
+              [31m-[0m[0m create_pod_range            = false [90m-> null[0m[0m
+              [31m-[0m[0m enable_private_nodes        = false [90m-> null[0m[0m
+              [31m-[0m[0m pod_ipv4_cidr_block         = "10.20.0.0/16" [90m-> null[0m[0m
+              [31m-[0m[0m pod_range                   = "pods" [90m-> null[0m[0m
+              [31m-[0m[0m subnetwork                  = "projects/gke-gitops-mvp/regions/us-central1/subnetworks/gke-gitops-mvp-subnet" [90m-> null[0m[0m
+                [90m# (1 unchanged attribute hidden)[0m[0m
+            }
+
+          [31m-[0m[0m node_config {
+              [31m-[0m[0m disk_size_gb                = 30 [90m-> null[0m[0m
+              [31m-[0m[0m disk_type                   = "pd-standard" [90m-> null[0m[0m
+              [31m-[0m[0m effective_taints            = [] [90m-> null[0m[0m
+              [31m-[0m[0m enable_confidential_storage = false [90m-> null[0m[0m
+              [31m-[0m[0m flex_start                  = false [90m-> null[0m[0m
+              [31m-[0m[0m image_type                  = "COS_CONTAINERD" [90m-> null[0m[0m
+              [31m-[0m[0m labels                      = {} [90m-> null[0m[0m
+              [31m-[0m[0m local_ssd_count             = 0 [90m-> null[0m[0m
+              [31m-[0m[0m logging_variant             = "DEFAULT" [90m-> null[0m[0m
+              [31m-[0m[0m machine_type                = "e2-medium" [90m-> null[0m[0m
+              [31m-[0m[0m metadata                    = {
+                  [31m-[0m[0m "disable-legacy-endpoints" = "true"
+                } [90m-> null[0m[0m
+              [31m-[0m[0m oauth_scopes                = [
+                  [31m-[0m[0m "https://www.googleapis.com/auth/cloud-platform",
+                ] [90m-> null[0m[0m
+              [31m-[0m[0m preemptible                 = false [90m-> null[0m[0m
+              [31m-[0m[0m resource_labels             = {
+                  [31m-[0m[0m "goog-gke-node-pool-provisioning-model" = "on-demand"
+                } [90m-> null[0m[0m
+              [31m-[0m[0m resource_manager_tags       = {} [90m-> null[0m[0m
+              [31m-[0m[0m service_account             = "gke-gitops-mvp-nodes@gke-gitops-mvp.iam.gserviceaccount.com" [90m-> null[0m[0m
+              [31m-[0m[0m spot                        = false [90m-> null[0m[0m
+              [31m-[0m[0m storage_pools               = [] [90m-> null[0m[0m
+              [31m-[0m[0m tags                        = [] [90m-> null[0m[0m
+                [90m# (6 unchanged attributes hidden)[0m[0m
+
+              [31m-[0m[0m boot_disk {
+                  [31m-[0m[0m disk_type              = "pd-standard" [90m-> null[0m[0m
+                  [31m-[0m[0m provisioned_iops       = 0 [90m-> null[0m[0m
+                  [31m-[0m[0m provisioned_throughput = 0 [90m-> null[0m[0m
+                  [31m-[0m[0m size_gb                = 30 [90m-> null[0m[0m
+                }
+
+              [31m-[0m[0m kubelet_config {
+                  [31m-[0m[0m allowed_unsafe_sysctls                      = [] [90m-> null[0m[0m
+                  [31m-[0m[0m container_log_max_files                     = 0 [90m-> null[0m[0m
+                  [31m-[0m[0m cpu_cfs_quota                               = false [90m-> null[0m[0m
+                  [31m-[0m[0m eviction_max_pod_grace_period_seconds       = 0 [90m-> null[0m[0m
+                  [31m-[0m[0m image_gc_high_threshold_percent             = 0 [90m-> null[0m[0m
+                  [31m-[0m[0m image_gc_low_threshold_percent              = 0 [90m-> null[0m[0m
+                  [31m-[0m[0m insecure_kubelet_readonly_port_enabled      = "FALSE" [90m-> null[0m[0m
+                  [31m-[0m[0m max_parallel_image_pulls                    = 2 [90m-> null[0m[0m
+                  [31m-[0m[0m pod_pids_limit                              = 0 [90m-> null[0m[0m
+                  [31m-[0m[0m shutdown_grace_period_critical_pods_seconds = 0 [90m-> null[0m[0m
+                  [31m-[0m[0m shutdown_grace_period_seconds               = 0 [90m-> null[0m[0m
+                  [31m-[0m[0m single_process_oom_kill                     = false [90m-> null[0m[0m
+                    [90m# (5 unchanged attributes hidden)[0m[0m
+                }
+
+              [31m-[0m[0m node_image_config {
+                  [31m-[0m[0m image         = "gke-1358-gke1225000-cos-125-19216-532-135-c-pre" [90m-> null[0m[0m
+                  [31m-[0m[0m image_project = "gke-node-images" [90m-> null[0m[0m
+                }
+
+              [31m-[0m[0m shielded_instance_config {
+                  [31m-[0m[0m enable_integrity_monitoring = true [90m-> null[0m[0m
+                  [31m-[0m[0m enable_secure_boot          = false [90m-> null[0m[0m
+                }
+
+              [31m-[0m[0m windows_node_config {
+                    [90m# (1 unchanged attribute hidden)[0m[0m
+                }
+            }
+
+          [31m-[0m[0m upgrade_settings {
+              [31m-[0m[0m max_surge       = 1 [90m-> null[0m[0m
+              [31m-[0m[0m max_unavailable = 0 [90m-> null[0m[0m
+              [31m-[0m[0m strategy        = "SURGE" [90m-> null[0m[0m
+            }
+        }
+
+      [31m-[0m[0m node_pool_auto_config {
+          [31m-[0m[0m resource_manager_tags = {} [90m-> null[0m[0m
+
+          [31m-[0m[0m node_kubelet_config {
+              [31m-[0m[0m insecure_kubelet_readonly_port_enabled = "FALSE" [90m-> null[0m[0m
+            }
+        }
+
+      [31m-[0m[0m node_pool_defaults {
+          [31m-[0m[0m node_config_defaults {
+              [31m-[0m[0m insecure_kubelet_readonly_port_enabled = "FALSE" [90m-> null[0m[0m
+              [31m-[0m[0m logging_variant                        = "DEFAULT" [90m-> null[0m[0m
+            }
+        }
+
+      [31m-[0m[0m notification_config {
+          [31m-[0m[0m pubsub {
+              [31m-[0m[0m enabled = false [90m-> null[0m[0m
+                [90m# (1 unchanged attribute hidden)[0m[0m
+            }
+        }
+
+      [31m-[0m[0m pod_autoscaling {
+          [31m-[0m[0m hpa_profile = "PERFORMANCE" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m private_cluster_config {
+          [31m-[0m[0m enable_private_endpoint     = false [90m-> null[0m[0m
+          [31m-[0m[0m enable_private_nodes        = false [90m-> null[0m[0m
+          [31m-[0m[0m private_endpoint            = "10.10.0.2" [90m-> null[0m[0m
+          [31m-[0m[0m public_endpoint             = "104.197.19.114" [90m-> null[0m[0m
+            [90m# (3 unchanged attributes hidden)[0m[0m
+
+          [31m-[0m[0m master_global_access_config {
+              [31m-[0m[0m enabled = false [90m-> null[0m[0m
+            }
+        }
+
+      [31m-[0m[0m rbac_binding_config {
+          [31m-[0m[0m enable_insecure_binding_system_authenticated   = true [90m-> null[0m[0m
+          [31m-[0m[0m enable_insecure_binding_system_unauthenticated = true [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m release_channel {
+          [31m-[0m[0m channel = "REGULAR" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m secret_manager_config {
+          [31m-[0m[0m enabled = false [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m secret_sync_config {
+          [31m-[0m[0m enabled = false [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m security_posture_config {
+          [31m-[0m[0m mode               = "BASIC" [90m-> null[0m[0m
+          [31m-[0m[0m vulnerability_mode = "VULNERABILITY_MODE_UNSPECIFIED" [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m service_external_ips_config {
+          [31m-[0m[0m enabled = false [90m-> null[0m[0m
+        }
+    }
+
+[1m  # google_container_node_pool.main[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "google_container_node_pool" "main" {
+      [31m-[0m[0m cluster                     = "projects/gke-gitops-mvp/locations/us-central1-a/clusters/gke-gitops-mvp" [90m-> null[0m[0m
+      [31m-[0m[0m deletion_policy             = "DELETE" [90m-> null[0m[0m
+      [31m-[0m[0m id                          = "projects/gke-gitops-mvp/locations/us-central1-a/clusters/gke-gitops-mvp/nodePools/main-pool" [90m-> null[0m[0m
+      [31m-[0m[0m ignore_node_count_changes   = false [90m-> null[0m[0m
+      [31m-[0m[0m initial_node_count          = 2 [90m-> null[0m[0m
+      [31m-[0m[0m instance_group_urls         = [
+          [31m-[0m[0m "https://www.googleapis.com/compute/v1/projects/gke-gitops-mvp/zones/us-central1-a/instanceGroupManagers/gke-gke-gitops-mvp-main-pool-c1f29367-grp",
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m location                    = "us-central1-a" [90m-> null[0m[0m
+      [31m-[0m[0m managed_instance_group_urls = [
+          [31m-[0m[0m "https://www.googleapis.com/compute/v1/projects/gke-gitops-mvp/zones/us-central1-a/instanceGroups/gke-gke-gitops-mvp-main-pool-c1f29367-grp",
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m max_pods_per_node           = 110 [90m-> null[0m[0m
+      [31m-[0m[0m name                        = "main-pool" [90m-> null[0m[0m
+      [31m-[0m[0m node_count                  = 2 [90m-> null[0m[0m
+      [31m-[0m[0m node_locations              = [
+          [31m-[0m[0m "us-central1-a",
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m project                     = "gke-gitops-mvp" [90m-> null[0m[0m
+      [31m-[0m[0m version                     = "1.35.8-gke.1225000" [90m-> null[0m[0m
+        [90m# (1 unchanged attribute hidden)[0m[0m
+
+      [31m-[0m[0m management {
+          [31m-[0m[0m auto_repair  = true [90m-> null[0m[0m
+          [31m-[0m[0m auto_upgrade = true [90m-> null[0m[0m
+        }
+
+      [31m-[0m[0m network_config {
+          [31m-[0m[0m create_pod_range            = false [90m-> null[0m[0m
+          [31m-[0m[0m enable_private_nodes        = false [90m-> null[0m[0m
+          [31m-[0m[0m pod_ipv4_cidr_block         = "10.20.0.0/16" [90m-> null[0m[0m
+          [31m-[0m[0m pod_range                   = "pods" [90m-> null[0m[0m
+          [31m-[0m[0m subnetwork                  = "projects/gke-gitops-mvp/regions/us-central1/subnetworks/gke-gitops-mvp-subnet" [90m-> null[0m[0m
+            [90m# (1 unchanged attribute hidden)[0m[0m
+        }
+
+      [31m-[0m[0m node_config {
+          [31m-[0m[0m disk_size_gb                = 30 [90m-> null[0m[0m
+          [31m-[0m[0m disk_type                   = "pd-standard" [90m-> null[0m[0m
+          [31m-[0m[0m effective_taints            = [] [90m-> null[0m[0m
+          [31m-[0m[0m enable_confidential_storage = false [90m-> null[0m[0m
+          [31m-[0m[0m flex_start                  = false [90m-> null[0m[0m
+          [31m-[0m[0m image_type                  = "COS_CONTAINERD" [90m-> null[0m[0m
+          [31m-[0m[0m labels                      = {} [90m-> null[0m[0m
+          [31m-[0m[0m local_ssd_count             = 0 [90m-> null[0m[0m
+          [31m-[0m[0m logging_variant             = "DEFAULT" [90m-> null[0m[0m
+          [31m-[0m[0m machine_type                = "e2-medium" [90m-> null[0m[0m
+          [31m-[0m[0m metadata                    = {
+              [31m-[0m[0m "disable-legacy-endpoints" = "true"
+            } [90m-> null[0m[0m
+          [31m-[0m[0m oauth_scopes                = [
+              [31m-[0m[0m "https://www.googleapis.com/auth/cloud-platform",
+            ] [90m-> null[0m[0m
+          [31m-[0m[0m preemptible                 = false [90m-> null[0m[0m
+          [31m-[0m[0m resource_labels             = {
+              [31m-[0m[0m "goog-gke-node-pool-provisioning-model" = "on-demand"
+            } [90m-> null[0m[0m
+          [31m-[0m[0m resource_manager_tags       = {} [90m-> null[0m[0m
+          [31m-[0m[0m service_account             = "gke-gitops-mvp-nodes@gke-gitops-mvp.iam.gserviceaccount.com" [90m-> null[0m[0m
+          [31m-[0m[0m spot                        = false [90m-> null[0m[0m
+          [31m-[0m[0m storage_pools               = [] [90m-> null[0m[0m
+          [31m-[0m[0m tags                        = [] [90m-> null[0m[0m
+            [90m# (6 unchanged attributes hidden)[0m[0m
+
+          [31m-[0m[0m boot_disk {
+              [31m-[0m[0m disk_type              = "pd-standard" [90m-> null[0m[0m
+              [31m-[0m[0m provisioned_iops       = 0 [90m-> null[0m[0m
+              [31m-[0m[0m provisioned_throughput = 0 [90m-> null[0m[0m
+              [31m-[0m[0m size_gb                = 30 [90m-> null[0m[0m
+            }
+
+          [31m-[0m[0m kubelet_config {
+              [31m-[0m[0m allowed_unsafe_sysctls                      = [] [90m-> null[0m[0m
+              [31m-[0m[0m container_log_max_files                     = 0 [90m-> null[0m[0m
+              [31m-[0m[0m cpu_cfs_quota                               = false [90m-> null[0m[0m
+              [31m-[0m[0m eviction_max_pod_grace_period_seconds       = 0 [90m-> null[0m[0m
+              [31m-[0m[0m image_gc_high_threshold_percent             = 0 [90m-> null[0m[0m
+              [31m-[0m[0m image_gc_low_threshold_percent              = 0 [90m-> null[0m[0m
+              [31m-[0m[0m insecure_kubelet_readonly_port_enabled      = "FALSE" [90m-> null[0m[0m
+              [31m-[0m[0m max_parallel_image_pulls                    = 2 [90m-> null[0m[0m
+              [31m-[0m[0m pod_pids_limit                              = 0 [90m-> null[0m[0m
+              [31m-[0m[0m shutdown_grace_period_critical_pods_seconds = 0 [90m-> null[0m[0m
+              [31m-[0m[0m shutdown_grace_period_seconds               = 0 [90m-> null[0m[0m
+              [31m-[0m[0m single_process_oom_kill                     = false [90m-> null[0m[0m
+                [90m# (5 unchanged attributes hidden)[0m[0m
+            }
+
+          [31m-[0m[0m node_image_config {
+              [31m-[0m[0m image         = "gke-1358-gke1225000-cos-125-19216-532-135-c-pre" [90m-> null[0m[0m
+              [31m-[0m[0m image_project = "gke-node-images" [90m-> null[0m[0m
+            }
+
+          [31m-[0m[0m shielded_instance_config {
+              [31m-[0m[0m enable_integrity_monitoring = true [90m-> null[0m[0m
+              [31m-[0m[0m enable_secure_boot          = false [90m-> null[0m[0m
+            }
+
+          [31m-[0m[0m windows_node_config {
+                [90m# (1 unchanged attribute hidden)[0m[0m
+            }
+        }
+
+      [31m-[0m[0m upgrade_settings {
+          [31m-[0m[0m max_surge       = 1 [90m-> null[0m[0m
+          [31m-[0m[0m max_unavailable = 0 [90m-> null[0m[0m
+          [31m-[0m[0m strategy        = "SURGE" [90m-> null[0m[0m
+        }
+    }
+
+[1m  # google_project_iam_member.nodes[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "google_project_iam_member" "nodes" {
+      [31m-[0m[0m etag    = "BwZdl3tawkg=" [90m-> null[0m[0m
+      [31m-[0m[0m id      = "gke-gitops-mvp/roles/container.defaultNodeServiceAccount/serviceAccount:gke-gitops-mvp-nodes@gke-gitops-mvp.iam.gserviceaccount.com" [90m-> null[0m[0m
+      [31m-[0m[0m member  = "serviceAccount:gke-gitops-mvp-nodes@gke-gitops-mvp.iam.gserviceaccount.com" [90m-> null[0m[0m
+      [31m-[0m[0m project = "gke-gitops-mvp" [90m-> null[0m[0m
+      [31m-[0m[0m role    = "roles/container.defaultNodeServiceAccount" [90m-> null[0m[0m
+    }
+
+[1m  # google_service_account.nodes[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "google_service_account" "nodes" {
+      [31m-[0m[0m account_id      = "gke-gitops-mvp-nodes" [90m-> null[0m[0m
+      [31m-[0m[0m deletion_policy = "DELETE" [90m-> null[0m[0m
+      [31m-[0m[0m disabled        = false [90m-> null[0m[0m
+      [31m-[0m[0m display_name    = "GKE node service account" [90m-> null[0m[0m
+      [31m-[0m[0m email           = "gke-gitops-mvp-nodes@gke-gitops-mvp.iam.gserviceaccount.com" [90m-> null[0m[0m
+      [31m-[0m[0m id              = "projects/gke-gitops-mvp/serviceAccounts/gke-gitops-mvp-nodes@gke-gitops-mvp.iam.gserviceaccount.com" [90m-> null[0m[0m
+      [31m-[0m[0m member          = "serviceAccount:gke-gitops-mvp-nodes@gke-gitops-mvp.iam.gserviceaccount.com" [90m-> null[0m[0m
+      [31m-[0m[0m name            = "projects/gke-gitops-mvp/serviceAccounts/gke-gitops-mvp-nodes@gke-gitops-mvp.iam.gserviceaccount.com" [90m-> null[0m[0m
+      [31m-[0m[0m project         = "gke-gitops-mvp" [90m-> null[0m[0m
+      [31m-[0m[0m unique_id       = "114417558475687215520" [90m-> null[0m[0m
+        [90m# (1 unchanged attribute hidden)[0m[0m
+    }
+
+[1m  # helm_release.argocd[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "helm_release" "argocd" {
+      [31m-[0m[0m atomic                     = false [90m-> null[0m[0m
+      [31m-[0m[0m chart                      = "argo-cd" [90m-> null[0m[0m
+      [31m-[0m[0m cleanup_on_fail            = false [90m-> null[0m[0m
+      [31m-[0m[0m create_namespace           = true [90m-> null[0m[0m
+      [31m-[0m[0m dependency_update          = false [90m-> null[0m[0m
+      [31m-[0m[0m disable_crd_hooks          = false [90m-> null[0m[0m
+      [31m-[0m[0m disable_openapi_validation = false [90m-> null[0m[0m
+      [31m-[0m[0m disable_webhooks           = false [90m-> null[0m[0m
+      [31m-[0m[0m force_update               = false [90m-> null[0m[0m
+      [31m-[0m[0m id                         = "argocd" [90m-> null[0m[0m
+      [31m-[0m[0m lint                       = false [90m-> null[0m[0m
+      [31m-[0m[0m max_history                = 0 [90m-> null[0m[0m
+      [31m-[0m[0m metadata                   = {
+          [31m-[0m[0m app_version    = "v3.5.4" [90m-> null[0m[0m
+          [31m-[0m[0m chart          = "argo-cd" [90m-> null[0m[0m
+          [31m-[0m[0m first_deployed = 1791758199 [90m-> null[0m[0m
+          [31m-[0m[0m last_deployed  = 1791758199 [90m-> null[0m[0m
+          [31m-[0m[0m name           = "argocd" [90m-> null[0m[0m
+          [31m-[0m[0m namespace      = "argocd" [90m-> null[0m[0m
+          [31m-[0m[0m notes          = <<-EOT
+                In order to access the server UI you have the following options:
+                
+                1. kubectl port-forward service/argocd-server -n argocd 8080:443
+                
+                    and then open the browser on http://localhost:8080 and accept the certificate
+                
+                2. enable ingress in the values file `server.ingress.enabled` and either
+                      - Add the annotation for ssl passthrough: https://argo-cd.readthedocs.io/en/stable/operator-manual/ingress/#option-1-ssl-passthrough
+                      - Set the `configs.params."server.insecure"` in the values file and terminate SSL at your ingress: https://argo-cd.readthedocs.io/en/stable/operator-manual/ingress/#option-2-multiple-ingress-objects-and-hosts
+                
+                
+                After reaching the UI the first time you can login with username: admin and the random password generated during the installation. You can find the password by running:
+                
+                kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+                
+                (You should delete the initial secret afterwards as suggested by the Getting Started Guide: https://argo-cd.readthedocs.io/en/stable/getting_started/#4-login-using-the-cli)
+            EOT [90m-> null[0m[0m
+          [31m-[0m[0m revision       = 1 [90m-> null[0m[0m
+          [31m-[0m[0m values         = jsonencode(
+                {
+                  [31m-[0m[0m dex           = {
+                      [31m-[0m[0m enabled = false
+                    }
+                  [31m-[0m[0m notifications = {
+                      [31m-[0m[0m enabled = false
+                    }
+                }
+            ) [90m-> null[0m[0m
+          [31m-[0m[0m version        = "10.10.2" [90m-> null[0m[0m
+        } [90m-> null[0m[0m
+      [31m-[0m[0m name                       = "argocd" [90m-> null[0m[0m
+      [31m-[0m[0m namespace                  = "argocd" [90m-> null[0m[0m
+      [31m-[0m[0m pass_credentials           = false [90m-> null[0m[0m
+      [31m-[0m[0m recreate_pods              = false [90m-> null[0m[0m
+      [31m-[0m[0m render_subchart_notes      = true [90m-> null[0m[0m
+      [31m-[0m[0m replace                    = false [90m-> null[0m[0m
+      [31m-[0m[0m repository                 = "https://argoproj.github.io/argo-helm" [90m-> null[0m[0m
+      [31m-[0m[0m reset_values               = false [90m-> null[0m[0m
+      [31m-[0m[0m reuse_values               = false [90m-> null[0m[0m
+      [31m-[0m[0m set                        = [
+          [31m-[0m[0m {
+              [31m-[0m[0m name  = "dex.enabled" [90m-> null[0m[0m
+              [31m-[0m[0m value = "false" [90m-> null[0m[0m
+                [90m# (1 unchanged attribute hidden)[0m[0m
+            },
+          [31m-[0m[0m {
+              [31m-[0m[0m name  = "notifications.enabled" [90m-> null[0m[0m
+              [31m-[0m[0m value = "false" [90m-> null[0m[0m
+                [90m# (1 unchanged attribute hidden)[0m[0m
+            },
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m set_wo                     = (write-only attribute) [90m-> null[0m[0m
+      [31m-[0m[0m skip_crds                  = false [90m-> null[0m[0m
+      [31m-[0m[0m status                     = "deployed" [90m-> null[0m[0m
+      [31m-[0m[0m take_ownership             = false [90m-> null[0m[0m
+      [31m-[0m[0m timeout                    = 300 [90m-> null[0m[0m
+      [31m-[0m[0m upgrade_install            = false [90m-> null[0m[0m
+      [31m-[0m[0m verify                     = false [90m-> null[0m[0m
+      [31m-[0m[0m version                    = "10.10.2" [90m-> null[0m[0m
+      [31m-[0m[0m wait                       = true [90m-> null[0m[0m
+      [31m-[0m[0m wait_for_jobs              = false [90m-> null[0m[0m
+    }
+
+[1m  # helm_release.podinfo_app[0m will be [1m[31mdestroyed[0m
+[0m  [31m-[0m[0m resource "helm_release" "podinfo_app" {
+      [31m-[0m[0m atomic                     = false [90m-> null[0m[0m
+      [31m-[0m[0m chart                      = "argocd-apps" [90m-> null[0m[0m
+      [31m-[0m[0m cleanup_on_fail            = false [90m-> null[0m[0m
+      [31m-[0m[0m create_namespace           = false [90m-> null[0m[0m
+      [31m-[0m[0m dependency_update          = false [90m-> null[0m[0m
+      [31m-[0m[0m disable_crd_hooks          = false [90m-> null[0m[0m
+      [31m-[0m[0m disable_openapi_validation = false [90m-> null[0m[0m
+      [31m-[0m[0m disable_webhooks           = false [90m-> null[0m[0m
+      [31m-[0m[0m force_update               = false [90m-> null[0m[0m
+      [31m-[0m[0m id                         = "podinfo-app" [90m-> null[0m[0m
+      [31m-[0m[0m lint                       = false [90m-> null[0m[0m
+      [31m-[0m[0m max_history                = 0 [90m-> null[0m[0m
+      [31m-[0m[0m metadata                   = {
+          [31m-[0m[0m app_version    = "" [90m-> null[0m[0m
+          [31m-[0m[0m chart          = "argocd-apps" [90m-> null[0m[0m
+          [31m-[0m[0m first_deployed = 1791758258 [90m-> null[0m[0m
+          [31m-[0m[0m last_deployed  = 1791758258 [90m-> null[0m[0m
+          [31m-[0m[0m name           = "podinfo-app" [90m-> null[0m[0m
+          [31m-[0m[0m namespace      = "argocd" [90m-> null[0m[0m
+          [31m-[0m[0m notes          = "" [90m-> null[0m[0m
+          [31m-[0m[0m revision       = 1 [90m-> null[0m[0m
+          [31m-[0m[0m values         = jsonencode(
+                {
+                  [31m-[0m[0m applications = {
+                      [31m-[0m[0m podinfo = {
+                          [31m-[0m[0m destination = {
+                              [31m-[0m[0m namespace = "podinfo"
+                              [31m-[0m[0m server    = "https://kubernetes.default.svc"
+                            }
+                          [31m-[0m[0m namespace   = "argocd"
+                          [31m-[0m[0m project     = "default"
+                          [31m-[0m[0m source      = {
+                              [31m-[0m[0m path           = "k8s"
+                              [31m-[0m[0m repoURL        = "https://github.com/divyareddyn/gke-gitops-mvp.git"
+                              [31m-[0m[0m targetRevision = "main"
+                            }
+                          [31m-[0m[0m syncPolicy  = {
+                              [31m-[0m[0m automated   = {
+                                  [31m-[0m[0m prune    = true
+                                  [31m-[0m[0m selfHeal = true
+                                }
+                              [31m-[0m[0m syncOptions = [
+                                  [31m-[0m[0m "CreateNamespace=true",
+                                ]
+                            }
+                        }
+                    }
+                }
+            ) [90m-> null[0m[0m
+          [31m-[0m[0m version        = "2.0.6" [90m-> null[0m[0m
+        } [90m-> null[0m[0m
+      [31m-[0m[0m name                       = "podinfo-app" [90m-> null[0m[0m
+      [31m-[0m[0m namespace                  = "argocd" [90m-> null[0m[0m
+      [31m-[0m[0m pass_credentials           = false [90m-> null[0m[0m
+      [31m-[0m[0m recreate_pods              = false [90m-> null[0m[0m
+      [31m-[0m[0m render_subchart_notes      = true [90m-> null[0m[0m
+      [31m-[0m[0m replace                    = false [90m-> null[0m[0m
+      [31m-[0m[0m repository                 = "https://argoproj.github.io/argo-helm" [90m-> null[0m[0m
+      [31m-[0m[0m reset_values               = false [90m-> null[0m[0m
+      [31m-[0m[0m reuse_values               = false [90m-> null[0m[0m
+      [31m-[0m[0m set_wo                     = (write-only attribute) [90m-> null[0m[0m
+      [31m-[0m[0m skip_crds                  = false [90m-> null[0m[0m
+      [31m-[0m[0m status                     = "deployed" [90m-> null[0m[0m
+      [31m-[0m[0m take_ownership             = false [90m-> null[0m[0m
+      [31m-[0m[0m timeout                    = 300 [90m-> null[0m[0m
+      [31m-[0m[0m upgrade_install            = false [90m-> null[0m[0m
+      [31m-[0m[0m values                     = [
+          [31m-[0m[0m <<-EOT
+                "applications":
+                  "podinfo":
+                    "destination":
+                      "namespace": "podinfo"
+                      "server": "https://kubernetes.default.svc"
+                    "namespace": "argocd"
+                    "project": "default"
+                    "source":
+                      "path": "k8s"
+                      "repoURL": "https://github.com/divyareddyn/gke-gitops-mvp.git"
+                      "targetRevision": "main"
+                    "syncPolicy":
+                      "automated":
+                        "prune": true
+                        "selfHeal": true
+                      "syncOptions":
+                      - "CreateNamespace=true"
+            EOT,
+        ] [90m-> null[0m[0m
+      [31m-[0m[0m verify                     = false [90m-> null[0m[0m
+      [31m-[0m[0m version                    = "2.0.6" [90m-> null[0m[0m
+      [31m-[0m[0m wait                       = true [90m-> null[0m[0m
+      [31m-[0m[0m wait_for_jobs              = false [90m-> null[0m[0m
+    }
+
+[1mPlan:[0m [0m0 to add, 0 to change, 8 to destroy.
+[0m[1mgoogle_project_iam_member.nodes: Destroying... [id=gke-gitops-mvp/roles/container.defaultNodeServiceAccount/serviceAccount:gke-gitops-mvp-nodes@gke-gitops-mvp.iam.gserviceaccount.com][0m[0m
+[0m[1mhelm_release.podinfo_app: Destroying... [id=podinfo-app][0m[0m
+[0m[1mhelm_release.podinfo_app: Destruction complete after 1s[0m
+[0m[1mhelm_release.argocd: Destroying... [id=argocd][0m[0m
+[0m[1mgoogle_project_iam_member.nodes: Destruction complete after 7s[0m
+[0m[1mhelm_release.argocd: Destruction complete after 8s[0m
+[0m[1mgoogle_container_node_pool.main: Destroying... [id=projects/gke-gitops-mvp/locations/us-central1-a/clusters/gke-gitops-mvp/nodePools/main-pool][0m[0m
+[0m[1mgoogle_container_node_pool.main: Still destroying... [id=projects/gke-gitops-mvp/locations/us-ce...ers/gke-gitops-mvp/nodePools/main-pool, 00m10s elapsed][0m[0m
+[0m[1mgoogle_container_node_pool.main: Still destroying... [id=projects/gke-gitops-mvp/locations/us-ce...ers/gke-gitops-mvp/nodePools/main-pool, 00m20s elapsed][0m[0m
+[0m[1mgoogle_container_node_pool.main: Still destroying... [id=projects/gke-gitops-mvp/locations/us-ce...ers/gke-gitops-mvp/nodePools/main-pool, 00m30s elapsed][0m[0m
+[0m[1mgoogle_container_node_pool.main: Still destroying... [id=projects/gke-gitops-mvp/locations/us-ce...ers/gke-gitops-mvp/nodePools/main-pool, 00m40s elapsed][0m[0m
+[0m[1mgoogle_container_node_pool.main: Still destroying... [id=projects/gke-gitops-mvp/locations/us-ce...ers/gke-gitops-mvp/nodePools/main-pool, 00m50s elapsed][0m[0m
+[0m[1mgoogle_container_node_pool.main: Still destroying... [id=projects/gke-gitops-mvp/locations/us-ce...ers/gke-gitops-mvp/nodePools/main-pool, 01m00s elapsed][0m[0m
+[0m[1mgoogle_container_node_pool.main: Still destroying... [id=projects/gke-gitops-mvp/locations/us-ce...ers/gke-gitops-mvp/nodePools/main-pool, 01m10s elapsed][0m[0m
+[0m[1mgoogle_container_node_pool.main: Still destroying... [id=projects/gke-gitops-mvp/locations/us-ce...ers/gke-gitops-mvp/nodePools/main-pool, 01m20s elapsed][0m[0m
+[0m[1mgoogle_container_node_pool.main: Still destroying... [id=projects/gke-gitops-mvp/locations/us-ce...ers/gke-gitops-mvp/nodePools/main-pool, 01m30s elapsed][0m[0m
+[0m[1mgoogle_container_node_pool.main: Still destroying... [id=projects/gke-gitops-mvp/locations/us-ce...ers/gke-gitops-mvp/nodePools/main-pool, 01m40s elapsed][0m[0m
+[0m[1mgoogle_container_node_pool.main: Still destroying... [id=projects/gke-gitops-mvp/locations/us-ce...ers/gke-gitops-mvp/nodePools/main-pool, 01m50s elapsed][0m[0m
+[0m[1mgoogle_container_node_pool.main: Still destroying... [id=projects/gke-gitops-mvp/locations/us-ce...ers/gke-gitops-mvp/nodePools/main-pool, 02m00s elapsed][0m[0m
+[0m[1mgoogle_container_node_pool.main: Still destroying... [id=projects/gke-gitops-mvp/locations/us-ce...ers/gke-gitops-mvp/nodePools/main-pool, 02m10s elapsed][0m[0m
+[0m[1mgoogle_container_node_pool.main: Still destroying... [id=projects/gke-gitops-mvp/locations/us-ce...ers/gke-gitops-mvp/nodePools/main-pool, 02m20s elapsed][0m[0m
+[0m[1mgoogle_container_node_pool.main: Still destroying... [id=projects/gke-gitops-mvp/locations/us-ce...ers/gke-gitops-mvp/nodePools/main-pool, 02m30s elapsed][0m[0m
+[0m[1mgoogle_container_node_pool.main: Still destroying... [id=projects/gke-gitops-mvp/locations/us-ce...ers/gke-gitops-mvp/nodePools/main-pool, 02m40s elapsed][0m[0m
+[0m[1mgoogle_container_node_pool.main: Still destroying... [id=projects/gke-gitops-mvp/locations/us-ce...ers/gke-gitops-mvp/nodePools/main-pool, 02m50s elapsed][0m[0m
+[0m[1mgoogle_container_node_pool.main: Still destroying... [id=projects/gke-gitops-mvp/locations/us-ce...ers/gke-gitops-mvp/nodePools/main-pool, 03m00s elapsed][0m[0m
+[0m[1mgoogle_container_node_pool.main: Still destroying... [id=projects/gke-gitops-mvp/locations/us-ce...ers/gke-gitops-mvp/nodePools/main-pool, 03m10s elapsed][0m[0m
+[0m[1mgoogle_container_node_pool.main: Still destroying... [id=projects/gke-gitops-mvp/locations/us-ce...ers/gke-gitops-mvp/nodePools/main-pool, 03m20s elapsed][0m[0m
+[0m[1mgoogle_container_node_pool.main: Still destroying... [id=projects/gke-gitops-mvp/locations/us-ce...ers/gke-gitops-mvp/nodePools/main-pool, 03m30s elapsed][0m[0m
+[0m[1mgoogle_container_node_pool.main: Still destroying... [id=projects/gke-gitops-mvp/locations/us-ce...ers/gke-gitops-mvp/nodePools/main-pool, 03m40s elapsed][0m[0m
+[0m[1mgoogle_container_node_pool.main: Still destroying... [id=projects/gke-gitops-mvp/locations/us-ce...ers/gke-gitops-mvp/nodePools/main-pool, 03m50s elapsed][0m[0m
+[0m[1mgoogle_container_node_pool.main: Still destroying... [id=projects/gke-gitops-mvp/locations/us-ce...ers/gke-gitops-mvp/nodePools/main-pool, 04m00s elapsed][0m[0m
+[0m[1mgoogle_container_node_pool.main: Still destroying... [id=projects/gke-gitops-mvp/locations/us-ce...ers/gke-gitops-mvp/nodePools/main-pool, 04m10s elapsed][0m[0m
+[0m[1mgoogle_container_node_pool.main: Still destroying... [id=projects/gke-gitops-mvp/locations/us-ce...ers/gke-gitops-mvp/nodePools/main-pool, 04m20s elapsed][0m[0m
+[0m[1mgoogle_container_node_pool.main: Destruction complete after 4m25s[0m
+[0m[1mgoogle_service_account.nodes: Destroying... [id=projects/gke-gitops-mvp/serviceAccounts/gke-gitops-mvp-nodes@gke-gitops-mvp.iam.gserviceaccount.com][0m[0m
+[0m[1mgoogle_container_cluster.gke: Destroying... [id=projects/gke-gitops-mvp/locations/us-central1-a/clusters/gke-gitops-mvp][0m[0m
+[0m[1mgoogle_service_account.nodes: Destruction complete after 1s[0m
+[0m[1mgoogle_container_cluster.gke: Still destroying... [id=projects/gke-gitops-mvp/locations/us-central1-a/clusters/gke-gitops-mvp, 00m10s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.gke: Still destroying... [id=projects/gke-gitops-mvp/locations/us-central1-a/clusters/gke-gitops-mvp, 00m20s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.gke: Still destroying... [id=projects/gke-gitops-mvp/locations/us-central1-a/clusters/gke-gitops-mvp, 00m30s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.gke: Still destroying... [id=projects/gke-gitops-mvp/locations/us-central1-a/clusters/gke-gitops-mvp, 00m40s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.gke: Still destroying... [id=projects/gke-gitops-mvp/locations/us-central1-a/clusters/gke-gitops-mvp, 00m50s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.gke: Still destroying... [id=projects/gke-gitops-mvp/locations/us-central1-a/clusters/gke-gitops-mvp, 01m00s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.gke: Still destroying... [id=projects/gke-gitops-mvp/locations/us-central1-a/clusters/gke-gitops-mvp, 01m10s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.gke: Still destroying... [id=projects/gke-gitops-mvp/locations/us-central1-a/clusters/gke-gitops-mvp, 01m20s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.gke: Still destroying... [id=projects/gke-gitops-mvp/locations/us-central1-a/clusters/gke-gitops-mvp, 01m30s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.gke: Still destroying... [id=projects/gke-gitops-mvp/locations/us-central1-a/clusters/gke-gitops-mvp, 01m40s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.gke: Still destroying... [id=projects/gke-gitops-mvp/locations/us-central1-a/clusters/gke-gitops-mvp, 01m50s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.gke: Still destroying... [id=projects/gke-gitops-mvp/locations/us-central1-a/clusters/gke-gitops-mvp, 02m00s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.gke: Still destroying... [id=projects/gke-gitops-mvp/locations/us-central1-a/clusters/gke-gitops-mvp, 02m10s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.gke: Still destroying... [id=projects/gke-gitops-mvp/locations/us-central1-a/clusters/gke-gitops-mvp, 02m20s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.gke: Still destroying... [id=projects/gke-gitops-mvp/locations/us-central1-a/clusters/gke-gitops-mvp, 02m30s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.gke: Still destroying... [id=projects/gke-gitops-mvp/locations/us-central1-a/clusters/gke-gitops-mvp, 02m40s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.gke: Still destroying... [id=projects/gke-gitops-mvp/locations/us-central1-a/clusters/gke-gitops-mvp, 02m50s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.gke: Still destroying... [id=projects/gke-gitops-mvp/locations/us-central1-a/clusters/gke-gitops-mvp, 03m00s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.gke: Still destroying... [id=projects/gke-gitops-mvp/locations/us-central1-a/clusters/gke-gitops-mvp, 03m10s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.gke: Still destroying... [id=projects/gke-gitops-mvp/locations/us-central1-a/clusters/gke-gitops-mvp, 03m20s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.gke: Still destroying... [id=projects/gke-gitops-mvp/locations/us-central1-a/clusters/gke-gitops-mvp, 03m30s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.gke: Still destroying... [id=projects/gke-gitops-mvp/locations/us-central1-a/clusters/gke-gitops-mvp, 03m40s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.gke: Still destroying... [id=projects/gke-gitops-mvp/locations/us-central1-a/clusters/gke-gitops-mvp, 03m50s elapsed][0m[0m
+[0m[1mgoogle_container_cluster.gke: Destruction complete after 3m53s[0m
+[0m[1mgoogle_compute_subnetwork.subnet: Destroying... [id=projects/gke-gitops-mvp/regions/us-central1/subnetworks/gke-gitops-mvp-subnet][0m[0m
+[0m[1mgoogle_compute_subnetwork.subnet: Still destroying... [id=projects/gke-gitops-mvp/regions/us-central1/subnetworks/gke-gitops-mvp-subnet, 00m10s elapsed][0m[0m
+[0m[1mgoogle_compute_subnetwork.subnet: Still destroying... [id=projects/gke-gitops-mvp/regions/us-central1/subnetworks/gke-gitops-mvp-subnet, 00m20s elapsed][0m[0m
+[0m[1mgoogle_compute_subnetwork.subnet: Destruction complete after 21s[0m
+[0m[1mgoogle_compute_network.vpc: Destroying... [id=projects/gke-gitops-mvp/global/networks/gke-gitops-mvp-vpc][0m[0m
+[0m[1mgoogle_compute_network.vpc: Still destroying... [id=projects/gke-gitops-mvp/global/networks/gke-gitops-mvp-vpc, 00m10s elapsed][0m[0m
+[0m[1mgoogle_compute_network.vpc: Still destroying... [id=projects/gke-gitops-mvp/global/networks/gke-gitops-mvp-vpc, 00m20s elapsed][0m[0m
+[0m[1mgoogle_compute_network.vpc: Still destroying... [id=projects/gke-gitops-mvp/global/networks/gke-gitops-mvp-vpc, 00m30s elapsed][0m[0m
+[0m[1mgoogle_compute_network.vpc: Destruction complete after 32s[0m
+[33m╷[0m[0m
+[33m│[0m [0m[1m[33mWarning: [0m[0m[1mHelm uninstall returned an information message[0m
+[33m│[0m [0m
+[33m│[0m [0m[0mThese resources were kept due to the resource policy:
+[33m│[0m [0m[CustomResourceDefinition] applications.argoproj.io
+[33m│[0m [0m[CustomResourceDefinition] applicationsets.argoproj.io
+[33m│[0m [0m[CustomResourceDefinition] appprojects.argoproj.io
+[33m│[0m [0m
+[33m╵[0m[0m
+[0m[1m[32m
+Destroy complete! Resources: 8 destroyed.[0m

@@ -8,6 +8,8 @@ A minimal, observable Kubernetes environment on **Google Kubernetes Engine (GKE)
 - A **NetworkPolicy** limits who can reach the app. **GKE Dataplane V2** enforces it.
 - All evidence (terminal output with UTC timestamps, plus screenshots) is in [`evidence/`](evidence/).
 
+![alt text](architecture-diagram.png)
+
 > **About me and this project:** I'm new to GCP, Terraform and Argo CD. I used an AI assistant (Claude) to learn the concepts, practice some basics and to guide my apporach to solving this problem. I also used AI create test scripts and a draft of README. I typed and ran every command myself, fixed the problems listed in [Problems I hit](#problems-i-hit), and captured all the evidence.
 
 ---
@@ -404,7 +406,11 @@ GKE sends container logs to Cloud Logging and system metrics to Cloud Monitoring
 
 ### The one alert I'd add for production
 
-**A warning alert I *can* build today with existing GKE metrics:** any single podinfo container above 90% of its CPU limit for 5 minutes (`kubernetes.io/container/cpu/limit_utilization > 0.9`). My load test showed the HPA's average can hide saturated Pods, so this catches what the average misses. I'd send it as a ticket or chat warning, not a page.
+**A warning alert I *can* build today with existing GKE metrics:** any single podinfo container above 90% of its CPU limit for 5 minutes (`kubernetes.io/container/cpu/limit_utilization > 0.9`). My load test showed the HPA's average can hide saturated Pods, so this catches what the average misses. I'd send it as a ticket or slack warning, not a page.
+
+### One SLO for production
+
+**Availability SLO:** 99.5% of HTTP requests to podinfo return a non-5xx response, measured over a rolling 30 days.
 
 ### Signals not available here, and how I'd expose them in a customer-controlled environment
 
@@ -470,8 +476,6 @@ What I would add before calling this production-ready:
 
 ## Destroy and cleanup confirmation
 
-<!-- TODO: fill in after running the commands below -->
-
 ```bash
 cd ~/gke-gitops-mvp/terraform
 { date -u; terraform destroy -auto-approve; } 2>&1 | tee ../evidence/12-terraform-destroy.txt
@@ -487,8 +491,8 @@ cd ~/gke-gitops-mvp
 } 2>&1 | tee evidence/13-cleanup-check.txt
 ```
 
-- `evidence/12-terraform-destroy.txt`: expected `Destroy complete! Resources: 8 destroyed.`
-- `evidence/13-cleanup-check.txt`: expected empty lists (`Listed 0 items.`) for clusters, networks, disks, VMs and the node service account.
+- `evidence/12-terraform-destroy.txt`
+- `evidence/13-cleanup-check.txt`
 
 ---
 

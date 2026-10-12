@@ -469,7 +469,6 @@ What I would add before calling this production-ready:
 | Argo CD showed `Degraded` right after first sync | HPA had no CPU readings yet (`<unknown>`) | Waited ~2 minutes; it became `Healthy` on its own |
 | My first GitOps check showed the old commit and old message | Argo CD checks Git only every ~3 minutes | Waited and checked again; the new Pods had the new message |
 | NetworkPolicy wasn't in the cluster right after I pushed it | Argo CD was still on the previous commit | Checked `git log` against GitHub, waited for Argo CD, re-captured with the GitHub SHA next to the synced SHA (file 07) |
-| `tee: evidence/…: No such file or directory` | I ran the command from `terraform/`, not the repo root | `cd ~/gke-gitops-mvp` first |
 | HPA showed 160% CPU with 5 Pods, but adding Pods didn't lower it as expected | Keepalive connections stayed on the 2 original Pods | Added per-Pod CPU to the load-test script and re-ran to confirm (section 5) |
 
 ---

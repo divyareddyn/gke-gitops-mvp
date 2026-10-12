@@ -1,0 +1,65 @@
++ date -u
+Mon Oct 12 02:12:57 AM UTC 2026
++ kubectl get nodes
+NAME                                         STATUS   ROLES    AGE     VERSION
+gke-gke-gitops-mvp-main-pool-c1f29367-9wg7   Ready    <none>   4h34m   v1.35.8-gke.1225000
+gke-gke-gitops-mvp-main-pool-c1f29367-c83s   Ready    <none>   4h34m   v1.35.8-gke.1225000
++ kubectl top nodes
+NAME                                         CPU(cores)   CPU(%)   MEMORY(bytes)   MEMORY(%)   
+gke-gke-gitops-mvp-main-pool-c1f29367-9wg7   182m         19%      1587Mi          56%         
+gke-gke-gitops-mvp-main-pool-c1f29367-c83s   166m         17%      1567Mi          55%         
++ kubectl get application podinfo -n argocd
+NAME      SYNC STATUS   HEALTH STATUS
+podinfo   Synced        Healthy
++ kubectl get deploy,pods -n podinfo
+NAME                      READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/podinfo   2/2     2            2           3h35m
+
+NAME                           READY   STATUS    RESTARTS   AGE
+pod/podinfo-577968d8fc-hgdgn   1/1     Running   0          130m
+pod/podinfo-577968d8fc-nvlxd   1/1     Running   0          3h24m
++ kubectl top pods -n podinfo
+NAME                       CPU(cores)   MEMORY(bytes)   
+podinfo-577968d8fc-hgdgn   1m           18Mi            
+podinfo-577968d8fc-nvlxd   1m           15Mi            
++ kubectl get hpa podinfo -n podinfo
+NAME      REFERENCE            TARGETS       MINPODS   MAXPODS   REPLICAS   AGE
+podinfo   Deployment/podinfo   cpu: 0%/50%   2         5         2          3h35m
++ kubectl describe hpa podinfo -n podinfo
+Name:                                                  podinfo
+Namespace:                                             podinfo
+Labels:                                                <none>
+Annotations:                                           argocd.argoproj.io/tracking-id: podinfo:autoscaling/HorizontalPodAutoscaler:podinfo/podinfo
+CreationTimestamp:                                     Sun, 11 Oct 2026 22:37:45 +0000
+Reference:                                             Deployment/podinfo
+Metrics:                                               ( current / target )
+  resource cpu on pods  (as a percentage of request):  0% (0) / 50%
+Min replicas:                                          2
+Max replicas:                                          5
+Behavior:
+  Scale Up:
+    Stabilization Window: 0 seconds
+    Select Policy: Max
+    Policies:
+      - Type: Pods     Value: 4    Period: 15 seconds
+      - Type: Percent  Value: 100  Period: 15 seconds
+  Scale Down:
+    Stabilization Window: 60 seconds
+    Select Policy: Max
+    Policies:
+      - Type: Percent  Value: 100  Period: 15 seconds
+Deployment pods:       2 current / 2 desired
+Conditions:
+  Type            Status  Reason            Message
+  ----            ------  ------            -------
+  AbleToScale     True    ReadyForNewScale  recommended size matches current size
+  ScalingActive   True    ValidMetricFound  the HPA was able to successfully calculate a replica count from cpu resource utilization (percentage of request)
+  ScalingLimited  True    TooFewReplicas    the desired replica count is less than the minimum replica count
+Events:           <none>
++ kubectl get events -n podinfo --sort-by=.lastTimestamp
+No resources found in podinfo namespace.
++ kubectl logs -n podinfo -l app=podinfo --prefix --tail=10
+[pod/podinfo-577968d8fc-hgdgn/podinfo] {"level":"info","ts":"2026-10-12T00:02:26.895Z","caller":"podinfo/main.go:170","msg":"Starting podinfo","version":"6.15.0","revision":"dd507173b7b75b2312a36cabe0de5f09c1ce69c8","port":"9898"}
+[pod/podinfo-577968d8fc-hgdgn/podinfo] {"level":"info","ts":"2026-10-12T00:02:26.935Z","caller":"http/server.go:273","msg":"Starting HTTP Server.","addr":":9898"}
+[pod/podinfo-577968d8fc-nvlxd/podinfo] {"level":"info","ts":"2026-10-11T22:48:06.087Z","caller":"podinfo/main.go:170","msg":"Starting podinfo","version":"6.15.0","revision":"dd507173b7b75b2312a36cabe0de5f09c1ce69c8","port":"9898"}
+[pod/podinfo-577968d8fc-nvlxd/podinfo] {"level":"info","ts":"2026-10-11T22:48:06.088Z","caller":"http/server.go:273","msg":"Starting HTTP Server.","addr":":9898"}
